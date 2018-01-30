@@ -59,3 +59,5 @@ var books = [{
     "scores":[4, 3, 2, 0, 5, 3, 4, 3, 2, 4]
 },
 ]
+
+module.exports = books;
