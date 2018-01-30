@@ -13,6 +13,13 @@ var PORT = process.env.PORT||3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//creating static directory for my front end html
+app.use(express.static("public"));
+
+//requiring the routes
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
+
 
 //server starts listening
 app.listen(PORT, function() {
