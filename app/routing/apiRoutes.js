@@ -1,4 +1,4 @@
-var booksData= require("../data/books.js");
+var booksData= require("../data/books");
 
 module.exports = function(app){
 app.get("api/books", function(req, res){

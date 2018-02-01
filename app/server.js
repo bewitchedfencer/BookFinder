@@ -2,7 +2,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
-
+var path = require("path");
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 
 //requiring the routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routing/apiRoutes")(app);
+require("./routing/htmlRoutes")(app);
 
 
 //server starts listening
