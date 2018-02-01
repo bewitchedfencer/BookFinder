@@ -1,7 +1,8 @@
 var booksData= require("../data/books");
+var path = require("path");
 
 module.exports = function(app){
-app.get("api/books", function(req, res){
+app.get("/api/books", function(req, res){
     res.sendFile(path.join(__dirname, "../data/books.js"))
 });
 
@@ -11,6 +12,7 @@ var userInput = req.body;
 var totalDifference =0;
 var differentArray = [];
 var chosenBook;
+var chosenBookCover;
 console.log('scores', userInput.scores);
 for(var i=0; i<booksData.length; i++){
     for(var j=0; j<userInput.scores.length;j++){
@@ -28,9 +30,15 @@ for(var i=0; i<booksData.length; i++){
         tmp = differentArray[i].totalDifference;
         if (tmp < lowest){ 
             lowest = tmp;
-            chosenBook = differentArray[i];
+            chosenBook = differentArray[i].title;
+            chosenBookCover = differentArray[i].photo;
+
     }};
-    res.send(chosenBook);
+    var sendBack = {
+        title:chosenBook,
+        cover:chosenBookCover
+    }
+    res.send(sendBack);
 });
 
 };
